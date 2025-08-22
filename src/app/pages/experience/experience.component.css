@@ -1,0 +1,51 @@
+.project-card {
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0px 0px 10px rgba(254, 156, 156, 0.3),
+        0px 0px 30px rgba(149, 173, 247, 0.2),
+        0px 0px 25px rgba(178, 220, 170, 0.2);
+}
+
+.gallery-header {
+    padding: 1rem;
+    background: linear-gradient(70deg, #fe9c9c, #95adf7, #b2dcaa);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-weight: bold;
+}
+
+.gallery-body {
+    padding: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, max-height 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.project-card:hover .gallery-body {
+    opacity: 1;
+    max-height: 500px;
+}
+
+
+.project-desc {
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+
+.gallery-meta {
+    color: #bbb;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}

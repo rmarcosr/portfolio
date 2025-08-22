@@ -1,0 +1,30 @@
+<div class="container my-5 text-center">
+    <div class="btn-group mt-2" role="group">
+        <button type="button" class="btn button" [routerLink]="['/projects']">Proyectos</button>
+        <button type="button" class="btn button" [routerLink]="['/about']">Conóceme</button>
+        <button type="button" class="btn button" [routerLink]="['/']">Volver</button>
+    </div>
+    <div class="container my-5">
+        <h2 class="text-center mb-5">Formación & Experiencia</h2>
+
+        <div class="row g-4">
+
+            @for (e of experiencies; track $index) {
+            <div class="project-card p-4">
+                <h3 class="project-title text-start">{{e.title}}</h3>
+                <p class="lead text-white text-start">
+                    {{e.subtitle}}
+                </p>
+                <p class="text-white text-start">
+                    {{e.description}}
+                </p>
+                <div class="text-start ">
+                    @for (skillIcon of e.skills; track $index) {
+                    <i class="{{skillIcon}}" style="font-size: 2.0rem; margin-right: 1rem;"></i>
+                    }
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

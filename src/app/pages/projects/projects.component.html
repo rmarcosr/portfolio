@@ -1,0 +1,48 @@
+<div class="container my-5 text-center">
+    <div class="btn-group mt-2" role="group">
+        <button type="button" class="btn button" [routerLink]="['/']">Volver</button>
+        <button type="button" class="btn button" [routerLink]="['/about']">Conóceme</button>
+        <button type="button" class="btn button" [routerLink]="['/experiencies']">Experiencia</button>
+    </div>
+
+    <h2 class="my-5">Proyectos</h2>
+
+    @for (project of projects; track $index) {
+    <div class="container my-5 text-white">
+        <div class="project-item">
+            <div class="row align-items-center mb-1">
+                <div class="col-12 col-sm-8">
+                    <h2 class="project-title text-start mb-0">{{project.name}}</h2>
+                </div>
+                <div class="col-12 col-sm-4 text-sm-end">
+                    <span class="project-meta">
+                        {{project.start.toLocaleDateString()}} - {{project.end?.toLocaleDateString()}}
+                    </span>
+                </div>
+            </div>
+
+            <p class="project-subtitle text-start my-3">
+                {{project.description}}
+            </p>
+
+            <div class="d-flex align-items-center mt-3">
+                @if (project.completed) {
+                <span class="badge rounded-pill bg-success project-status me-3">Completado</span>
+                } @else {
+                <span class="badge rounded-pill bg-warning project-status text-black me-3">En curso</span>
+                }
+                <a [href]="project.url" target="_blank" class="btn btn-outline-light btn-sm me-2">
+                    Ver Código
+                </a>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 mb-5 project-item">
+            @for (img of project.images; track $index) {
+            <div class="col">
+                <img [src]="img" class="img-fluid rounded shadow-sm" alt="Proyecto {{project.name}}">
+            </div>
+            }
+        </div>
+    </div>
+    }
+</div>

@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+    background-color: #1e1e1e;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Noto Serif", serif;
+    background: linear-gradient(70deg, #fe9c9c, #95adf7, #b2dcaa);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: x-large;
+
+}
+
+.button {
+    cursor: pointer;
+    padding: 1em;
+    font-size: 1em;
+    width: 7em;
+    aspect-ratio: 1/0.25;
+    color: white;
+    background: #212121;
+    background-size: cover;
+    background-blend-mode: overlay;
+    border-radius: 0.5em;
+    outline: 0.1em solid #353535;
+    border: 0;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.button:hover {
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(254, 156, 156, 0.3),
+        0px 0px 25px rgba(149, 173, 247, 0.2),
+        0px 0px 20px rgba(178, 220, 170, 0.2);
+    outline: 0;
+}

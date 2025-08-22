@@ -1,0 +1,45 @@
+.icon-circle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #363636;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    box-shadow: 0 3px 6px rgba(42, 42, 42, 0.2);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.icon-circle:hover {
+    transform: translateY(-5px);
+}
+
+.icon-circle::after {
+    content: attr(data-lang);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: #5a5a5a;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 10;
+}
+
+.icon-circle:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-20px);
+}
+
+.icon-circle i {
+    font-size: 36px;
+    border-image: linear-gradient(70deg, #fe9c9c, #95adf7, #b2dcaa) 1;
+}
