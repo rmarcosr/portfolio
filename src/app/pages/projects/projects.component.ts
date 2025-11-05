@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { Project } from '../../interfaces/interfaces';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-projects',
@@ -9,9 +10,20 @@ import { Project } from '../../interfaces/interfaces';
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
+
+
 export class ProjectsComponent {
 
   projects: Project[] = [
+    {
+      name: "HTTP-Responder-Discord",
+      url: "https://github.com/rmarcosr/HTTP-Responder-Discord",
+      completed: true,
+      start: new Date("2025-6-01"),
+      end: new Date("2025-11-05"),
+      description: "Un bot permite realizar peticiones HTTP directamente desde Discord, usando comandos slash como interfaz, según la respuesta del servidor, el bot la muestra directamente en el chat.",
+      images: ["/http-discord.jpg", "/http-discord2.jpg"]
+    },
     {
       name: "RasJob",
       url: "https://github.com/rmarcosr/rasJob",
@@ -22,14 +34,17 @@ export class ProjectsComponent {
       images: ["/rasjob1.png", "/rasjob2.png", "/rasjob3.png"]
 
     },
-    {
-      name: "BetterComponents",
-      url: "https://github.com/rmarcosr/better-components",
-      completed: false,
-      start: new Date("2025-6-18"),
-      end: undefined,
-      description: "Libería de componentes para Angular 18 desarrollada con HTML, CSS y TypeScript",
-      images: ["/bettercomponents1.png", "/bettercomponents2.png"]
-    }
   ]
+  selectedImage: string | null = null;
+
+  openImage(img: string) {
+    this.selectedImage = img;
+    const modalEl = document.getElementById('imageModal');
+    if (modalEl) {
+      const modal = new bootstrap.Modal(modalEl);
+      modal.show();
+    }
+  }
+
 }
+

@@ -6,6 +6,9 @@
     </div>
 
     <h2 class="my-5">Proyectos</h2>
+    <p class="project-subtitle text-info m-2">
+        Puedes hacer clic en la imagen para una mejor visualización
+    </p>
 
     @for (project of projects; track $index) {
     <div class="container my-5 text-white">
@@ -39,10 +42,23 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-5 mb-5 project-item">
             @for (img of project.images; track $index) {
             <div class="col">
-                <img [src]="img" class="img-fluid rounded shadow-sm" alt="Proyecto {{project.name}}">
+                <div class="image-wrapper" (click)="openImage(img)">
+                    <img [src]="img" alt="Proyecto {{project.name}}">
+                </div>
             </div>
             }
         </div>
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content bg-transparent border-0">
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+                    <img [src]="selectedImage" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+
     </div>
     }
 </div>
